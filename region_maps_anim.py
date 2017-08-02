@@ -18,7 +18,7 @@ import matplotlib.pyplot as plt
 from scipy.io import netcdf
 
 # Dictionary detailing region names, colour and whether to display the outline as dotted
-region_dict={'afr50':('Sienna',False),'nawa25':('HotPink',False),'anz50':('Gold',False),'eas50':('Red',False),'eu25':('SpringGreen',False),'eu50r':('RoyalBlue',False),'cam50':('DarkOrange',False),'cam25':('DeepSkyBlue',False),'pnw25':('ForestGreen',False),'sas50':('BlueViolet',False),'wus25':('YellowGreen',False),'sam50':('LemonChiffon',False),'cafr25':('LightSalmon',False)}
+region_dict={'afr50':('Sienna',False),'nawa25':('HotPink',False),'anz50':('Gold',False),'eas50':('Red',False),'eu25':('SpringGreen',False),'eu50r':('RoyalBlue',False),'cam50':('DarkOrange',False),'cam25':('DeepSkyBlue',False),'pnw25':('ForestGreen',False),'sas50':('BlueViolet',False),'wus25':('YellowGreen',False),'sam50':('LemonChiffon',False),'cafr25':('LightSalmon',False),'nam50':('Plum',False),'sam25':('Olive',False)}
 
 def get_rot_global_coords(region_file):
     f=netcdf.netcdf_file('data/'+region_file,'r')
@@ -46,7 +46,7 @@ def map_plot():
 	fig = plt.figure()
 	fig.set_size_inches(3,3)
         m = Basemap(projection='geos',lon_0=iframe,resolution='c')
-	m.bluemarble()
+	m.bluemarble(scale=0.5)
         m.drawmapboundary()
 	for region,region_style in region_dict.iteritems():
 	    region_file=region+"_region.nc"
@@ -103,6 +103,8 @@ def map_plot():
             fig.savefig("anim_jpgs/globe_plot_0"+str(360-iframe)+".jpg")
         else:
             fig.savefig("anim_jpgs/globe_plot_"+str(360-iframe)+".jpg")
+	fig.clf()
+
 #Main controling function
 def main():
     map_plot()
