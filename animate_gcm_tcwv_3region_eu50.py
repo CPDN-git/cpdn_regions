@@ -326,10 +326,10 @@ def plot_global_winds(nt,fig,Varin,lon,lat,rglon1,rglat1,rVarin,srglon1,srglat1,
 
 def main():
 	ddir='batch_d811_nam50/atmos/'  
-	in_file1='item3225_daily_mean/item3225_daily_mean_a000_2014-12_2015-12.nc'
-	in_file2='item3226_daily_mean/item3226_daily_mean_a000_2014-12_2015-12.nc'
-	in_file3='item10_daily_mean/item10_daily_mean_a000_2014-12_2015-12.nc'
-	in_file4='item1_daily_mean/item1_daily_mean_a000_2014-12_2015-12.nc'
+	in_file1='item3225_daily_mean_a000_2014-12_2015-12.nc'
+	in_file2='item3226_daily_mean_a000_2014-12_2015-12.nc'
+	in_file3='item10_daily_mean_a000_2014-12_2015-12.nc'
+	in_file4='item1_daily_mean_a000_2014-12_2015-12.nc'
 	lat1,lon1=get_global_wind_coords(in_file1)
 	f=netcdf.netcdf_file(ddir+in_file1,'r')
 	u=f.variables['item3225_daily_mean'][:]
@@ -350,10 +350,10 @@ def main():
 	U=np.squeeze(U)
 	V=np.squeeze(V)
 	ddir1='batch_d811_nam50/region/'  
-	in_file1='item3225_daily_mean/nam50_item3225_daily_mean_a000_2014-12_2015-12.nc'
-	in_file2='item3226_daily_mean/nam50_item3226_daily_mean_a000_2014-12_2015-12.nc'
-	in_file3='item10_daily_mean/nam50_item10_daily_mean_a000_2014-12_2015-12.nc'
-	in_file4='item1_daily_mean/nam50_item1_daily_mean_a000_2014-12_2015-12.nc'
+	in_file1='nam50_item3225_daily_mean_a000_2014-12_2015-12.nc'
+	in_file2='nam50_item3226_daily_mean_a000_2014-12_2015-12.nc'
+	in_file3='nam50_item10_daily_mean_a000_2014-12_2015-12.nc'
+	in_file4='nam50_item1_daily_mean_a000_2014-12_2015-12.nc'
 	rglat,rglon=get_rot_global_coords(in_file1)
 	nc = Dataset(ddir1+in_file1, mode='r')
 	ru = nc.variables['item3225_daily_mean']
