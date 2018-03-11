@@ -19,7 +19,7 @@ from scipy.io import netcdf
 
 
 # Dictionary detailing region names, colour and whether to display the outline as dotted
-region_dict={'afr50':('Sienna',False),'nawa25':('HotPink',False),'anz50':('Gold',False),'eas50':('Red',False),'eu25':('SpringGreen',False),'eu50r':('RoyalBlue',False),'cam50':('DarkOrange',False),'cam25':('DeepSkyBlue',False),'pnw25':('ForestGreen',False),'sas50':('BlueViolet',False),'wus25':('YellowGreen',False),'sam50':('LemonChiffon',False),'cafr25':('LightSalmon',False),'nam50':('Plum',False),'sam25':('Olive',False)}
+region_dict={'afr50':('Sienna',False),'nawa25':('HotPink',False),'anz50':('Gold',False),'eas50':('Red',False),'eu25':('SpringGreen',False),'eu50r':('RoyalBlue',False),'cam50':('DarkOrange',False),'cam25':('DeepSkyBlue',False),'pnw25':('ForestGreen',False),'sas50':('BlueViolet',False),'wus25':('YellowGreen',False),'sam50':('LemonChiffon',False),'cafr25':('LightSalmon',False),'nam50':('Plum',False),'sam25':('Olive',False),'safr50':('Slateblue',False),'cari25':('Deeppink',False)}
 
 def get_rot_global_coords(region_file):
     f=netcdf.netcdf_file('data/'+region_file,'r')
@@ -52,7 +52,7 @@ def map_plot():
 	region_col=region_style[0]
 	region_line=region_style[1]
 	print region_file
-	if region=="afr50" or region=="nawa25" or region=="cafr25":
+	if region=="afr50" or region=="nawa25" or region=="cafr25" or region=="safr50":
 	    lat,lon=get_global_coords(region_file)
             for i in range(0,4):
                if i==0:
